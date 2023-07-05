@@ -17,11 +17,11 @@ from wtforms.validators import DataRequired
 from forms import CreatePostForm
 from flask_gravatar import Gravatar
 from forms import RegisterForm, CreatePostForm, LoginForm
-\
+
 
 app = Flask(__name__)
 # app.config['SECRET_KEY'] = os.environ['SECRET_KEY']
-app.config['SECRET_KEY'] = config('SECRET_KEY')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
