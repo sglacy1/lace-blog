@@ -137,11 +137,10 @@ def load_user(user_id):
 def login():
     login_form = LoginForm()
     if login_form.validate_on_submit():
-        current_user_email = login_form.email.data
+        email = login_form.email.data
         current_user_password = login_form.password.data
 
-        user = User.query.filter_by(email=current_user_email).first()
-        print(user.id)
+        user = User.query.filter_by(email=email).first()
         if not user:
             flash('That email does not exist, please try again.')
             return redirect(url_for('login'))
